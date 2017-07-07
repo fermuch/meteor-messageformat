@@ -51,8 +51,6 @@ var checkForUpdates = function(m, force) {
 
   walker.on('file', function(root, stat, next) {
     // Add this file to the list of files (skip .dirs)
-    // NOTE: since the typescript (ts) and JSX typescript (tsx) matchers work equal as
-    // the JS and JSX ones, they're reused.
     if (stat.name.match(/\.(html|js|coffee|jsx|jade|ts|tsx)$/)) {
       var prettyDir = root.substr(relUp.length-1);
       var file = path.join(prettyDir, stat.name);
@@ -477,6 +475,8 @@ handlers.jsx = function(file, data, mtime, strings) {
 
 };
 
+// NOTE: since the typescript (ts) and JSX typescript (tsx) matchers work equal as
+// the JS and JSX ones, so they're reused instead of duplicating.
 handlers.ts = handlers.js;
 handlers.tsx = handlers.jsx;
 
