@@ -477,6 +477,9 @@ handlers.jsx = function(file, data, mtime, strings) {
 
 };
 
+handlers.ts = handlers.js;
+handlers.tsx = handlers.jsx;
+
 handlers.coffee = function(file, data, mtime, strings) {
   // XXX TODO, escaped quotes
   var result, re;
